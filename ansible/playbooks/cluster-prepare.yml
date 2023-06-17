@@ -116,7 +116,6 @@
             fstype: swap
             state: absent
           loop: ["none", "swap"]
-      notify: Reboot
 
   handlers:
     - name: Reboot
