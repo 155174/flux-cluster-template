@@ -59,6 +59,9 @@ spec:
         ingress:
           enabled: true
           className: nginx
+          annotations:
+            external-dns.alpha.kubernetes.io/target: "ingress.${SECRET_DOMAIN}"
+            hajimari.io/icon: mdi:rocket-outline
           hosts:
             - &host "hubble.${SECRET_DOMAIN}"
           tls:
