@@ -28,7 +28,7 @@ spec:
   values:
     hajimari:
       title: Apps
-      darkTheme: espresso
+      darkTheme: tron
       alwaysTargetBlank: true
       showGreeting: false
       showAppGroups: false
@@ -41,6 +41,7 @@ spec:
         matchNames:
           - default
           - monitoring
+          - kube-system
     ingress:
       main:
         enabled: true
