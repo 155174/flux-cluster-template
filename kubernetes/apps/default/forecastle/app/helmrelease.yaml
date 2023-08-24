@@ -2,93 +2,20 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: fc
+  name: forecastle
   namespace: default
 spec:
   chart:
     spec:
-      chart: stakater
+      chart: forecastle
       reconcileStrategy: ChartVersion
       sourceRef:
         kind: HelmRepository
         name: stakater
   interval: 1m0s
-  releaseName: fc
+  releaseName: forecastle
+  targetNamespace: default
   values:
-    forecastle:
-      config:
-        customApps: {}
-        headerBackground: null
-        headerForeground: null
-        instanceName: null
-        namespaceSelector:
-          matchNames:
-            - stakater
-        title: null
-      container:
-        securityContext: {}
-      deployment:
-        affinity: {}
-        annotations: {}
-        nodeSelector: {}
-        podSecurityContext: {}
-        replicas: 1
-        resources: {}
-        revisionHistoryLimit: 2
-        securityContext: {}
-        tolerations: {}
-      image:
-        name: stakater/forecastle
-        tag: v1.0.127
-      ingress:
-        annotations: {}
-        className: null
-        enabled: false
-        hosts:
-          - host: "fc.${SECRET_DOMAIN}"
-            paths:
-              - path: /
-                pathType: Prefix
-      labels:
-        group: com.stakater.platform
-        provider: stakater
-        version: v1.0.127
-      namespace: default
-      networkPolicy:
-        egress:
-          apiServer:
-            masterCidrBlock: 127.0.0.1/32
-            masterPort: 443
-          denyExternalTraffic: false
-        enabled: false
-        ingress:
-          enabled: false
-          namespaceSelector: {}
-          podSelector: {}
-      openshiftOauthProxy:
-        enabled: false
-        resources: {}
-        securityContext: {}
-        serviceAccountAnnotations: {}
-      pod:
-        annotations: {}
-      podDisruptionBudget: {}
-      proxy:
-        enabled: false
-      route:
-        additionalLabels: {}
-        annotations: {}
-        enabled: false
-        host: ""
-        port:
-          targetPort: http
-        tls:
-          insecureEdgeTerminationPolicy: Redirect
-          termination: edge
-        wildcardPolicy: None
-      service:
-        annotations: {}
-        expose: "false"
     ingress:
       main:
         enabled: true
@@ -97,7 +24,7 @@ spec:
           external-dns.alpha.kubernetes.io/target: "ingress.${SECRET_DOMAIN}"
           hajimari.io/enable: "false"
         hosts:
-          - host: &host "fc.${SECRET_DOMAIN}"
+          - host: &host "forecastle.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
