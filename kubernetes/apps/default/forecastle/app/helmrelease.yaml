@@ -8,6 +8,7 @@ spec:
   chart:
     spec:
       chart: forecastle
+      version: v1.0.127
       reconcileStrategy: ChartVersion
       sourceRef:
         kind: HelmRepository
