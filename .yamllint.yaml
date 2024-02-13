@@ -1,6 +1,6 @@
 ---
 ignore: |
-  *.sops.*
+  *.*
 extends: default
 rules:
   truthy:

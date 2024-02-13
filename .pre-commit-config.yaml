@@ -6,5 +6,5 @@ repos:
     hooks:
       - args:
           - --config-file
-          #- .yamllint.yaml
+          - .yamllint.yaml
         id: yamllint

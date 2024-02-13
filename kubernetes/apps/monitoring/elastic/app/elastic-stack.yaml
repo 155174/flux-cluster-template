@@ -16,9 +16,6 @@ apiVersion: kibana.k8s.elastic.co/v1
 kind: Kibana
 metadata:
   name: elk
-  namespace: monitoring
-  labels:
-    app: elk
 spec:
   version: 8.12.1
   count: 1
