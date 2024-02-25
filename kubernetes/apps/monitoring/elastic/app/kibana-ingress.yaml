@@ -11,7 +11,7 @@ metadata:
   #nginx.ingress.kubernetes.io/auth-url: http://authelia.kube-system.svc.cluster.local/api/verify
   #nginx.ingress.kubernetes.io/auth-signin: https://auth.${SECRET_DOMAIN}
   labels:
-    app: elk
+    app: elastic
   name: kibana
   namespace: monitoring
 spec:
@@ -22,7 +22,7 @@ spec:
       paths:
       - backend:
           service:
-            name: elk-kb-http
+            name: kibana-kb-http
             port:
               number: 5601
         path: /
