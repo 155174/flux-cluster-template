@@ -14,6 +14,7 @@ metadata:
   name: elastic
   namespace: monitoring
 spec:
+  enabled: true
   ingressClassName: nginx
   rules:
   - host: "elastic.${SECRET_DOMAIN}"
