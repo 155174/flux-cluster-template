@@ -15,7 +15,7 @@ metadata:
   name: kibana
   namespace: monitoring
 spec:
-  ingressClassName: internal
+  ingressClassName: nginx
   rules:
   - host: &host "kibana.${SECRET_DOMAIN}"
     http:
